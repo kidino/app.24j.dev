@@ -29,18 +29,18 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
-            return (new MailMessage)
-                ->subject('Sila Sahkan Email Anda')
-                ->greeting("Salam sejahtera {$notifiable->name},")
-                ->line('Terima kasih kerana mendaftar ke KelasProgramming.com. Sila sahkan email anda. Klik butang di bawah untuk pengesahan.')
-                ->action('Sahkan Email Anda', $url)
-                ->salutation('Terima kasih.');
-        });
+        // VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
+        //     return (new MailMessage)
+        //         ->subject('Sila Sahkan Email Anda')
+        //         ->greeting("Salam sejahtera {$notifiable->name},")
+        //         ->line('Terima kasih kerana mendaftar ke KelasProgramming.com. Sila sahkan email anda. Klik butang di bawah untuk pengesahan.')
+        //         ->action('Sahkan Email Anda', $url)
+        //         ->salutation('Terima kasih.');
+        // });
 
-        Gate::define('access-roles', function (User $user) {
-            return $user->hasRole('Admin');
-        });
+        // Gate::define('access-roles', function (User $user) {
+        //     return $user->hasRole('Admin');
+        // });
 
     }
 }

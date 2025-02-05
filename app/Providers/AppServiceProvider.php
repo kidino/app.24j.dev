@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Notifications\SendVerifyEmail;
 use App\Policies\RolePolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Schema;
@@ -29,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
+        SendVerifyEmail::toMailUsing(function (object $notifiable, string $url) {
             return (new MailMessage)
                 ->subject('Sila Sahkan Email Anda')
                 ->greeting("Salam sejahtera {$notifiable->name},")
